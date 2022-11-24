@@ -10,6 +10,33 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     public TMP_InputField createField;
     public TMP_InputField joinField;
+    public TMP_Text youScore;
+    public TMP_Text otherScore;
+    public PlayerController localPlayer;
+    ScoreManager scoreManager;
+
+    void Start(){
+
+        scoreManager = FindObjectOfType<ScoreManager>();
+
+    }
+
+    void LateUpdate(){
+
+        if(scoreManager != null){
+
+            UpdateUI();
+
+        }
+
+    }
+
+    void UpdateUI(){
+
+        youScore.text = localPlayer.score.ToString();
+        otherScore.text = scoreManager.players.Find(x => x.gameObject != localPlayer.gameObject).score.ToString();
+
+    }
 
     public void OnCreateRoomPressed(){
 
