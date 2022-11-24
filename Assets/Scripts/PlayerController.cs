@@ -44,15 +44,14 @@ public class PlayerController : MonoBehaviour
         uIManager = FindObjectOfType<UIManager>();
 
         scoreManager.OnPlayerJoin(this);
-        uIManager.localPlayer = this;
-
-        otherPlayer = scoreManager.players.Find(x => x.gameObject != gameObject);
 
         rb = GetComponent<Rigidbody>();
         view = GetComponent<PhotonView>();
 
         if(view.IsMine){
 
+            uIManager.localPlayer = this;
+            otherPlayer = scoreManager.players.Find(x => x.gameObject != gameObject);
             inputMaster = new InputMaster();
             inputMaster.Player.Fire.performed += ctx => Fire();        
 
