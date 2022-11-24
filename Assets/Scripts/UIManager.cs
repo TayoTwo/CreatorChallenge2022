@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     void LateUpdate(){
 
-        if(scoreManager != null){
+        if(scoreManager != null && scoreManager.players.Count > 1){
 
             UpdateUI();
 

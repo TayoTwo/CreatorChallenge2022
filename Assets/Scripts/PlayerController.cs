@@ -138,6 +138,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    // public void IncrementScore(){
+
+
+    // }
+
     public void ResetPlayer(){
 
         scoreManager.players.Find(x => x.gameObject != gameObject).score++;
